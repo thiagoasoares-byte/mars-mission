@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel ECLSS - Habitat Marte</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 2rem auto; }
+    header { border-bottom: 2px solid #c1440e; margin-bottom: 1rem; }
+    #mensagem { margin-top: 1rem; font-weight: bold; }
+    #mensagem.erro { color: #b00020; }
+    #mensagem.ok { color: #1b6e2d; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Thiago Alves Soares 2502664</h1>
+    <p>Painel de Controle ECLSS - Habitat de Marte</p>
+  </header>
+
+  <p>Oxigênio disponível: <strong id="nivel-oxigenio">1000</strong> kg</p>
+  <p>Água disponível: <strong id="nivel-agua">5000</strong> L</p>
+
+  <form id="form-oxigenio">
+    <label for="astronauta">Astronauta</label>
+    <input id="astronauta" name="astronauta" type="text" required>
+    <label for="quantidade">Quantidade (kg)</label>
+    <input id="quantidade" name="quantidade" type="number" min="1" required>
+    <button id="enviar" type="submit">Solicitar oxigênio extra</button>
+  </form>
+
+  <p id="mensagem"></p>
+
+  <script>
+    const nivel = document.getElementById("nivel-oxigenio");
+    const mensagem = document.getElementById("mensagem");
+
+    document.getElementById("form-oxigenio").addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      const quantidade = parseInt(document.getElementById("quantidade").value, 10);
+      const atual = parseInt(nivel.textContent, 10);
+      mensagem.textContent = "Processando...";
+      mensagem.className = "";
+      setTimeout(() => {
+        if (quantidade > atual) {
+          mensagem.textContent = "Oxigênio insuficiente";
+          mensagem.className = "erro";
+          return;
+        }
+        nivel.textContent = String(atual - quantidade);
+        mensagem.textContent = "Solicitação aprovada";
+        mensagem.className = "ok";
+      }, 300);
+    });
+  </script>
+</body>
+</html>
