@@ -1,4 +1,4 @@
-[![pipeline](https://github.com/thiagoasoares-byte/projeto-missao-marte/actions/workflows/pipeline.yml/badge.svg)](https://github.com/thiagoasoares-byte/projeto-missao-marte/actions/workflows/pipeline.yml)
+[![pipeline](https://github.com/thiagoasoares-byte/mars-mission/actions/workflows/pipeline.yml/badge.svg)](https://github.com/thiagoasoares-byte/mars-mission/actions/workflows/pipeline.yml)
 
 # Thiago Alves Soares 2502664
 
